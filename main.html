@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guías de Electrónica - Portal de Acceso</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 50px 40px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 1.2em;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8eeff 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            border-left: 6px solid #7e22ce;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(126, 34, 206, 0.3);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .card-header h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .card-body p {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .card-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .card-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+            color: #666;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-features li:last-child {
+            border-bottom: none;
+        }
+
+        .card-features li::before {
+            content: "✓";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 30px;
+            text-align: center;
+            color: #666;
+            border-top: 2px solid #dee2e6;
+        }
+
+        footer p {
+            font-size: 1.1em;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚡ Guías de Electrónica</h1>
+            <p>Portal de acceso a formularios y conceptos fundamentales</p>
+        </header>
+
+        <div class="content">
+            <div class="intro">
+                <p>Accede fácilmente a todas las guías y formularios de electrónica desde este portal centralizado. Cada recurso está diseñado para facilitar tu aprendizaje y consulta rápida de conceptos fundamentales.</p>
+            </div>
+
+            <div class="cards-container">
+                <!-- Tarjeta 1: Diodos y Transistores -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>🔌 Diodos y Transistores BJT</h2>
+                        <p>Conceptos fundamentales para análisis de circuitos</p>
+                    </div>
+                    <div class="card-body">
+                        <p>Guía completa sobre diodos y transistores BJT, incluyendo polarización, modelos, circuitos rectificadores y análisis de amplificadores.</p>
+                        
+                        <ul class="card-features">
+                            <li>Polarización de diodos</li>
+                            <li>Modelos de diodo (Silicio y Germanio)</li>
+                            <li>Circuitos rectificadores</li>
+                            <li>Diodo Zener</li>
+                            <li>Regiones de operación de transistores</li>
+                            <li>Polarización DC</li>
+                            <li>Análisis AC de amplificadores</li>
+                        </ul>
+                        
+                        <a href="Parcial.html" class="btn">Abrir Guía</a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2: Fórmulas de Transistores -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>📊 Fórmulas de Transistores</h2>
+                        <p>Tablas de referencia rápida</p>
+                    </div>
+                    <div class="card-body">
+                        <p>Recopilación completa de fórmulas para análisis de circuitos con transistores BJT y FET/MOSFET, organizadas en tablas fáciles de consultar.</p>
+                        
+                        <ul class="card-features">
+                            <li>Parámetros básicos de BJT</li>
+                            <li>Amplificadores con transistor</li>
+                            <li>Transistores FET/MOSFET</li>
+                            <li>Polarización y punto de operación</li>
+                            <li>Ruido y desempeño</li>
+                            <li>Fórmulas de ganancia</li>
+                            <li>Impedancias de entrada y salida</li>
+                        </ul>
+                        
+                        <a href="Transistores.html" class="btn">Abrir Fórmulas</a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3: Ley de Ohm y Kirchhoff -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>🔋 Ley de Ohm y Kirchhoff</h2>
+                        <p>Fundamentos del análisis de circuitos</p>
+                    </div>
+                    <div class="card-body">
+                        <p>Guía completa sobre la Ley de Ohm y las Leyes de Kirchhoff, con explicaciones detalladas, ejemplos prácticos y aplicaciones.</p>
+                        
+                        <ul class="card-features">
+                            <li>Ley de Ohm (V = I × R)</li>
+                            <li>Ley de Potencia Eléctrica</li>
+                            <li>Ley de Corrientes de Kirchhoff (KCL)</li>
+                            <li>Ley de Voltajes de Kirchhoff (KVL)</li>
+                            <li>Ejemplos prácticos paso a paso</li>
+                            <li>Convenciones de signos</li>
+                            <li>Método de resolución de circuitos</li>
+                        </ul>
+                        
+                        <a href="Ohm%20Kirchoff.html" class="btn">Abrir Guía</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>⚡ Portal de acceso a guías de electrónica - Recursos para estudiantes y profesionales</p>
+        </footer>
+    </div>
+</body>
+</html>
