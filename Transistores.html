@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fórmulas de Transistores</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+        .tabla-seccion {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        tr:hover {
+            background: #f5f5f5;
+        }
+        .formula {
+            font-family: 'Courier New', monospace;
+            font-weight: 600;
+            color: #333;
+        }
+        .simbolo {
+            font-style: italic;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Fórmulas de Circuitos con Transistores</h1>
+
+        <div class="tabla-seccion">
+            <h2>Transistor BJT - Parámetros Básicos</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parámetro</th>
+                        <th>Fórmula</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ganancia de Corriente</td>
+                        <td class="formula">IC = β × IB</td>
+                        <td>Corriente de colector en función de base</td>
+                    </tr>
+                    <tr>
+                        <td>Voltaje Colector-Emisor</td>
+                        <td class="formula">VCE = VCC - IC × RC</td>
+                        <td>Voltaje en el transistor</td>
+                    </tr>
+                    <tr>
+                        <td>Corriente de Base</td>
+                        <td class="formula">IB = (VCC - VBE) / RB</td>
+                        <td>VBE ≈ 0.7V (silicio)</td>
+                    </tr>
+                    <tr>
+                        <td>Corriente de Colector</td>
+                        <td class="formula">IC = β × IB</td>
+                        <td>Corriente del colector</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tabla-seccion">
+            <h2>Amplificadores con Transistor</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parámetro</th>
+                        <th>Fórmula</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ganancia de Voltaje</td>
+                        <td class="formula">Av = -gm × RC</td>
+                        <td>Amplificación de voltaje en emisor común</td>
+                    </tr>
+                    <tr>
+                        <td>Transconductancia</td>
+                        <td class="formula">gm = IC / VT</td>
+                        <td>VT ≈ 26mV a temperatura ambiente</td>
+                    </tr>
+                    <tr>
+                        <td>Impedancia de Entrada</td>
+                        <td class="formula">Zin = β × VT / IB</td>
+                        <td>Impedancia vista desde la base</td>
+                    </tr>
+                    <tr>
+                        <td>Impedancia de Salida</td>
+                        <td class="formula">Zout ≈ RC</td>
+                        <td>Impedancia en el colector</td>
+                    </tr>
+                    <tr>
+                        <td>Ganancia de Potencia</td>
+                        <td class="formula">Ap = Av × (Zin / Zload)</td>
+                        <td>Amplificación de potencia</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tabla-seccion">
+            <h2>Transistor FET/MOSFET</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parámetro</th>
+                        <th>Fórmula</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Corriente de Drenaje (Saturación)</td>
+                        <td class="formula">ID = (W/L) × (μ/2) × Cox × (VGS - VT)²</td>
+                        <td>En región de saturación</td>
+                    </tr>
+                    <tr>
+                        <td>Corriente de Drenaje (Triodo)</td>
+                        <td class="formula">ID = (W/L) × μ × Cox × [(VGS - VT) × VDS - VDS²/2]</td>
+                        <td>En región lineal</td>
+                    </tr>
+                    <tr>
+                        <td>Transconductancia</td>
+                        <td class="formula">gm = 2 × (W/L) × (μ/2) × Cox × (VGS - VT)</td>
+                        <td>Transconductancia del FET</td>
+                    </tr>
+                    <tr>
+                        <td>Voltaje de Umbral</td>
+                        <td class="formula">VT = VT0 + γ × (√(2φF + VBS) - √(2φF))</td>
+                        <td>Voltaje threshold dependiente de VBS</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tabla-seccion">
+            <h2>Polarización y Punto de Operación</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parámetro</th>
+                        <th>Fórmula</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Resistencia de Thevenin (Base)</td>
+                        <td class="formula">RTh = (R1 × R2) / (R1 + R2)</td>
+                        <td>En divisor de voltaje</td>
+                    </tr>
+                    <tr>
+                        <td>Voltaje de Thevenin (Base)</td>
+                        <td class="formula">VTh = VCC × R2 / (R1 + R2)</td>
+                        <td>En divisor de voltaje</td>
+                    </tr>
+                    <tr>
+                        <td>Corriente de Saturación</td>
+                        <td class="formula">IC(sat) = (VCC - VCE(sat)) / RC</td>
+                        <td>Máxima corriente de colector</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tabla-seccion">
+            <h2>Ruido y Desempeño</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parámetro</th>
+                        <th>Fórmula</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Factor de Ruido</td>
+                        <td class="formula">NF = 1 + (RS / Zin) × (4kT / gm)</td>
+                        <td>Figura de ruido del amplificador</td>
+                    </tr>
+                    <tr>
+                        <td>Voltaje de Ruido Térmico</td>
+                        <td class="formula">Vn = √(4kT × R × Δf)</td>
+                        <td>k=1.38×10⁻²³, T en K, Δf ancho banda</td>
+                    </tr>
+                    <tr>
+                        <td>Ancho de Banda (-3dB)</td>
+                        <td class="formula">BW = 1 / (2π × R × C)</td>
+                        <td>Para circuito RC</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

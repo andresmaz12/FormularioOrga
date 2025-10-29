@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Diodos y Transistores BJT</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon {
+            font-size: 1.2em;
+        }
+
+        .topic {
+            background: #f8f9ff;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #764ba2;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .topic:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .topic h3 {
+            color: #764ba2;
+            font-size: 1.4em;
+            margin-bottom: 12px;
+        }
+
+        .topic p {
+            color: #555;
+            line-height: 1.7;
+            font-size: 1.05em;
+        }
+
+        .formula {
+            background: #fff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            color: #333;
+            text-align: center;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+        }
+
+        .highlight strong {
+            color: #856404;
+        }
+
+        footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-right: 8px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .section-title {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚡ Guía de Diodos y Transistores BJT</h1>
+            <p>Conceptos fundamentales para análisis de circuitos electrónicos</p>
+        </header>
+
+        <div class="content">
+            <!-- Sección Diodos -->
+            <div class="section">
+                <h2 class="section-title">
+                    <span class="icon">🔌</span>
+                    Diodos
+                </h2>
+
+                <div class="topic">
+                    <h3><span class="badge">1</span>Polarización</h3>
+                    <p><strong>Polarización Directa:</strong> El ánodo está conectado al terminal positivo y el cátodo al negativo. El diodo conduce corriente cuando la tensión supera el voltaje umbral.</p>
+                    <p style="margin-top: 10px;"><strong>Polarización Inversa:</strong> El ánodo está conectado al terminal negativo y el cátodo al positivo. El diodo NO conduce corriente (actúa como circuito abierto).</p>
+                </div>
+
+                <div class="topic">
+                    <h3><span class="badge">2</span>Modelos de Diodo</h3>
+                    <p>Dependiendo del material semiconductor, el diodo presenta diferentes voltajes de conducción:</p>
+                    <div class="formula">
+                        V<sub>Silicio</sub> = 0.7V
+                    </div>
+                    <div class="formula">
+                        V<sub>Germanio</sub> = 0.3V
+                    </div>
+                    <p style="margin-top: 10px;">Estos valores representan la caída de tensión aproximada cuando el diodo está en conducción directa.</p>
+                </div>
+
+                <div class="topic">
+                    <h3><span class="badge">3</span>Circuitos Rectificadores</h3>
+                    <p><strong>Rectificador de Media Onda:</strong> Convierte solo la mitad del ciclo de AC en DC.</p>
+                    <div class="formula">
+                        V<sub>DC</sub> = V<sub>max</sub> / π ≈ 0.318 × V<sub>max</sub>
+                    </div>
+                    <div class="formula">
+                        V<sub>RMS</sub> = V<sub>max</sub> / 2
+                    </div>
+                    <p style="margin-top: 15px;"><strong>Rectificador de Onda Completa:</strong> Utiliza ambos semiciclos de AC.</p>
+                    <div class="formula">
+                        V<sub>DC</sub> = 2 × V<sub>max</sub> / π ≈ 0.636 × V<sub>max</sub>
+                    </div>
+                    <div class="formula">
+                        V<sub>RMS</sub> = V<sub>max</sub> / √2
+                    </div>
+                </div>
+
+                <div class="topic">
+                    <h3><span class="badge">4</span>Diodo Zener</h3>
+                    <p>El diodo Zener se utiliza como <strong>regulador de voltaje</strong> cuando opera en polarización inversa. Mantiene un voltaje constante (V<sub>Z</sub>) en sus terminales a pesar de variaciones en la corriente o la carga.</p>
+                    <p style="margin-top: 10px;">Para análisis, se verifica que el Zener esté en la región de ruptura y se calcula la corriente a través de la resistencia en serie.</p>
+                </div>
+            </div>
+
+            <!-- Sección Transistores -->
+            <div class="section">
+                <h2 class="section-title">
+                    <span class="icon">🔧</span>
+                    Transistores (BJT)
+                </h2>
+
+                <div class="highlight">
+                    <strong>⚠️ Punto más importante:</strong> Determinar la región de operación del transistor es fundamental para cualquier análisis posterior.
+                </div>
+
+                <div class="topic">
+                    <h3><span class="badge">1</span>Regiones de Operación</h3>
+                    <p><strong>Corte:</strong> El transistor NO conduce. I<sub>C</sub> ≈ 0 y V<sub>CE</sub> ≈ V<sub>CC</sub>. La unión base-emisor no está polarizada adecuadamente (V<sub>BE</sub> < 0.7V).</p>
+                    <p style="margin-top: 10px;"><strong>Saturación:</strong> El transistor conduce al máximo. V<sub>CE</sub> ≈ 0.2V (muy pequeño). La corriente de colector está limitada por la resistencia externa, no por β.</p>
+                    <p style="margin-top: 10px;"><strong>Región Activa:</strong> El transistor amplifica. Se cumple I<sub>C</sub> = β × I<sub>B</sub> y V<sub>CE</sub> tiene un valor intermedio entre 0 y V<sub>CC</sub>.</p>
+                </div>
+
+                <div class="topic">
+                    <h3><span class="badge">2</span>Polarización DC</h3>
+                    <p><strong>Análisis con Recta de Carga:</strong> La recta de carga DC relaciona I<sub>C</sub> y V<sub>CE</sub>:</p>
+                    <div class="formula">
+                        V<sub>CC</sub> = I<sub>C</sub> × R<sub>C</sub> + V<sub>CE</sub> + I<sub>E</sub> × R<sub>E</sub>
+                    </div>
+                    <p style="margin-top: 15px;"><strong>Método del Divisor de Voltaje:</strong> Este es el método más usado para polarización estable. Se calcula V<sub>B</sub> usando el divisor resistivo R<sub>1</sub> y R<sub>2</sub>:</p>
+                    <div class="formula">
+                        V<sub>B</sub> = V<sub>CC</sub> × R<sub>2</sub> / (R<sub>1</sub> + R<sub>2</sub>)
+                    </div>
+                    <div class="formula">
+                        V<sub>E</sub> = V<sub>B</sub> - 0.7V
+                    </div>
+                    <div class="formula">
+                        I<sub>E</sub> = V<sub>E</sub> / R<sub>E</sub>
+                    </div>
+                    <div class="formula">
+                        I<sub>C</sub> ≈ I<sub>E</sub>
+                    </div>
+                </div>
+
+                <div class="topic">
+                    <h3><span class="badge">3</span>Análisis AC (Amplificadores)</h3>
+                    <p>En la configuración de <strong>Emisor Común</strong> (la más utilizada):</p>
+                    <p style="margin-top: 10px;"><strong>Ganancia de Voltaje:</strong></p>
+                    <div class="formula">
+                        A<sub>v</sub> = -R<sub>C</sub> / r<sub>e</sub>
+                    </div>
+                    <p style="margin-top: 5px; text-align: center; color: #666;">donde r<sub>e</sub> = 26mV / I<sub>E</sub></p>
+                    <p style="margin-top: 15px;"><strong>Impedancia de Entrada:</strong></p>
+                    <div class="formula">
+                        Z<sub>in</sub> = R<sub>1</sub> || R<sub>2</sub> || β × r<sub>e</sub>
+                    </div>
+                    <p style="margin-top: 15px;"><strong>Impedancia de Salida:</strong></p>
+                    <div class="formula">
+                        Z<sub>out</sub> ≈ R<sub>C</sub>
+                    </div>
+                    <p style="margin-top: 10px;">El signo negativo en A<sub>v</sub> indica inversión de fase (180°) entre entrada y salida.</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>📚 Guía de referencia rápida para exámenes y prácticas de electrónica</p>
+        </footer>
+    </div>
+</body>
+</html>
