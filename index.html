@@ -82,8 +82,8 @@
 
         .cards-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
         }
 
         .card {
@@ -93,6 +93,9 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.4s ease;
             border-left: 6px solid #7e22ce;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .card:hover {
@@ -108,18 +111,22 @@
         }
 
         .card-header h2 {
-            font-size: 1.8em;
+            font-size: 1.6em;
             margin-bottom: 10px;
         }
 
         .card-body {
-            padding: 30px;
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .card-body p {
             color: #555;
             line-height: 1.7;
             margin-bottom: 20px;
+            flex-grow: 1;
         }
 
         .card-features {
@@ -159,6 +166,7 @@
             font-size: 1.1em;
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            margin-top: auto;
         }
 
         .btn:hover {
@@ -178,17 +186,105 @@
             font-size: 1.1em;
         }
 
+        /* Media Queries para Responsividad */
+        @media (max-width: 1200px) {
+            .container {
+                margin: 0 20px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+            
+            .cards-container {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+
         @media (max-width: 768px) {
+            header {
+                padding: 40px 20px;
+            }
+            
             header h1 {
                 font-size: 2em;
             }
-
+            
+            header p {
+                font-size: 1em;
+            }
+            
             .content {
                 padding: 30px 20px;
             }
-
+            
+            .intro {
+                font-size: 1.1em;
+                margin-bottom: 30px;
+            }
+            
             .cards-container {
                 grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .card-header {
+                padding: 20px;
+            }
+            
+            .card-header h2 {
+                font-size: 1.5em;
+            }
+            
+            .card-body {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            header {
+                padding: 30px 15px;
+            }
+            
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .content {
+                padding: 20px 15px;
+            }
+            
+            .card-header h2 {
+                font-size: 1.4em;
+            }
+            
+            .card-features li {
+                font-size: 0.95em;
+            }
+            
+            .btn {
+                padding: 12px;
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 360px) {
+            header h1 {
+                font-size: 1.6em;
+            }
+            
+            .card-header {
+                padding: 15px;
+            }
+            
+            .card-body {
+                padding: 15px;
             }
         }
     </style>
@@ -271,7 +367,30 @@
                             <li>Método de resolución de circuitos</li>
                         </ul>
                         
-                        <a href="Ohm%20Kirchoff.html" class="btn">Abrir Guía</a>
+                        <a href="ohm-kirchoff.html" class="btn">Abrir Guía</a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 4: Análisis de Mallas -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>🔄 Análisis de Mallas</h2>
+                        <p>Método fundamental para circuitos eléctricos</p>
+                    </div>
+                    <div class="card-body">
+                        <p>Guía completa sobre el método de análisis de mallas, con explicaciones paso a paso, ejemplos prácticos y casos especiales.</p>
+                        
+                        <ul class="card-features">
+                            <li>Definición de mallas y lazos</li>
+                            <li>Ley de Voltajes de Kirchhoff (LVK)</li>
+                            <li>Método sistemático de análisis</li>
+                            <li>Ejemplos prácticos resueltos</li>
+                            <li>Fuentes de corriente y supermallas</li>
+                            <li>Ventajas del método</li>
+                            <li>Consejos prácticos</li>
+                        </ul>
+                        
+                        <a href="Mallas.html" class="btn">Abrir Guía</a>
                     </div>
                 </div>
             </div>
