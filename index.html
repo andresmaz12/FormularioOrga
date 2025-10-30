@@ -84,6 +84,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
+            margin-bottom: 50px;
         }
 
         .card {
@@ -174,6 +175,122 @@
             box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
         }
 
+        /* Estilos para la sección de componentes básicos */
+        .components-section {
+            margin-top: 50px;
+        }
+
+        .components-title {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .component-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .component-card h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .diagram-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .diode-symbol, .transistor-symbol {
+            position: relative;
+        }
+
+        .label {
+            position: absolute;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .anodo-label {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        .catodo-label {
+            background: #4ecdc4;
+            color: white;
+        }
+
+        .theory {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border-left: 5px solid #667eea;
+        }
+
+        .theory h3 {
+            color: #764ba2;
+            margin-bottom: 10px;
+        }
+
+        .theory p {
+            line-height: 1.6;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .theory ul {
+            margin-left: 20px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        svg {
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .transistor-parts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .part-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .part-card h4 {
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
         footer {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             padding: 30px;
@@ -200,6 +317,10 @@
             
             .cards-container {
                 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+            
+            .components-title {
+                font-size: 2em;
             }
         }
 
@@ -241,6 +362,18 @@
             .card-body {
                 padding: 20px;
             }
+            
+            .component-card {
+                padding: 20px;
+            }
+            
+            .diagram-container {
+                gap: 20px;
+            }
+            
+            .transistor-parts {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 480px) {
@@ -272,6 +405,19 @@
                 padding: 12px;
                 font-size: 1em;
             }
+            
+            .components-title {
+                font-size: 1.8em;
+            }
+            
+            .component-card h2 {
+                font-size: 1.5em;
+            }
+            
+            svg {
+                max-width: 100%;
+                height: auto;
+            }
         }
 
         @media (max-width: 360px) {
@@ -284,6 +430,10 @@
             }
             
             .card-body {
+                padding: 15px;
+            }
+            
+            .component-card {
                 padding: 15px;
             }
         }
@@ -394,11 +544,139 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Sección de Componentes Básicos -->
+            <div class="components-section">
+                <h2 class="components-title">⚡ Componentes Electrónicos Básicos</h2>
+                
+                <!-- SECCIÓN DIODO -->
+                <div class="component-card">
+                    <h2>🔌 DIODO</h2>
+                    
+                    <div class="diagram-container">
+                        <div class="diode-symbol">
+                            <svg width="300" height="200" viewBox="0 0 300 200">
+                                <!-- Línea izquierda (ánodo) -->
+                                <line x1="20" y1="100" x2="100" y2="100" stroke="#ff6b6b" stroke-width="4"/>
+                                
+                                <!-- Triángulo -->
+                                <polygon points="100,70 100,130 160,100" fill="#333" stroke="#333" stroke-width="2"/>
+                                
+                                <!-- Barra vertical (cátodo) -->
+                                <line x1="160" y1="70" x2="160" y2="130" stroke="#4ecdc4" stroke-width="6"/>
+                                
+                                <!-- Línea derecha (cátodo) -->
+                                <line x1="160" y1="100" x2="240" y2="100" stroke="#4ecdc4" stroke-width="4"/>
+                                
+                                <!-- Etiquetas -->
+                                <text x="60" y="60" font-size="18" font-weight="bold" fill="#ff6b6b">ÁNODO (+)</text>
+                                <text x="150" y="160" font-size="18" font-weight="bold" fill="#4ecdc4">CÁTODO (-)</text>
+                                
+                                <!-- Flecha de corriente -->
+                                <path d="M 80 50 L 180 50" stroke="#28a745" stroke-width="2" fill="none" marker-end="url(#arrowgreen)"/>
+                                <text x="90" y="40" font-size="14" fill="#28a745">Corriente →</text>
+                                
+                                <defs>
+                                    <marker id="arrowgreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                                        <path d="M0,0 L0,6 L9,3 z" fill="#28a745" />
+                                    </marker>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="theory">
+                        <h3>📚 Teoría del Diodo</h3>
+                        <p><strong>¿Qué es un diodo?</strong> Es un componente semiconductor que permite el paso de corriente eléctrica en <span class="highlight">una sola dirección</span>.</p>
+                        
+                        <p><strong>Partes del Diodo:</strong></p>
+                        <ul>
+                            <li><strong style="color: #ff6b6b;">ÁNODO (+):</strong> Terminal positivo. La corriente entra por aquí cuando el diodo está polarizado directamente.</li>
+                            <li><strong style="color: #4ecdc4;">CÁTODO (-):</strong> Terminal negativo. Identificado por la banda en el componente físico. La corriente sale por aquí.</li>
+                        </ul>
+                        
+                        <p><strong>Funcionamiento:</strong></p>
+                        <ul>
+                            <li><strong>Polarización directa:</strong> Ánodo (+) conectado a positivo y cátodo (-) a negativo → El diodo conduce.</li>
+                            <li><strong>Polarización inversa:</strong> Ánodo conectado a negativo y cátodo a positivo → El diodo bloquea la corriente.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- SECCIÓN TRANSISTOR -->
+                <div class="component-card">
+                    <h2>🔧 TRANSISTOR (NPN)</h2>
+                    
+                    <div class="diagram-container">
+                        <div class="transistor-symbol">
+                            <svg width="300" height="250" viewBox="0 0 300 250">
+                                <!-- Base (línea vertical) -->
+                                <line x1="120" y1="80" x2="120" y2="170" stroke="#333" stroke-width="4"/>
+                                
+                                <!-- Colector -->
+                                <line x1="120" y1="95" x2="180" y2="50" stroke="#e74c3c" stroke-width="3"/>
+                                <line x1="180" y1="50" x2="180" y2="20" stroke="#e74c3c" stroke-width="3"/>
+                                
+                                <!-- Emisor con flecha -->
+                                <line x1="120" y1="155" x2="180" y2="200" stroke="#3498db" stroke-width="3"/>
+                                <line x1="180" y1="200" x2="180" y2="230" stroke="#3498db" stroke-width="3"/>
+                                <polygon points="180,200 170,185 165,200" fill="#3498db"/>
+                                
+                                <!-- Base entrada -->
+                                <line x1="60" y1="125" x2="120" y2="125" stroke="#f39c12" stroke-width="3"/>
+                                
+                                <!-- Etiquetas -->
+                                <text x="185" y="15" font-size="16" font-weight="bold" fill="#e74c3c">COLECTOR (C)</text>
+                                <text x="10" y="130" font-size="16" font-weight="bold" fill="#f39c12">BASE (B)</text>
+                                <text x="185" y="245" font-size="16" font-weight="bold" fill="#3498db">EMISOR (E)</text>
+                                
+                                <!-- Círculo envolvente -->
+                                <circle cx="150" cy="125" r="70" stroke="#555" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="transistor-parts">
+                        <div class="part-card">
+                            <h4>🔴 COLECTOR (C)</h4>
+                            <p>Recibe la corriente principal. Terminal de salida de alta corriente.</p>
+                        </div>
+                        <div class="part-card">
+                            <h4>🟡 BASE (B)</h4>
+                            <p>Terminal de control. Una pequeña corriente aquí controla la corriente principal.</p>
+                        </div>
+                        <div class="part-card">
+                            <h4>🔵 EMISOR (E)</h4>
+                            <p>Por donde sale la corriente. Común en la mayoría de circuitos.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="theory">
+                        <h3>📚 Teoría del Transistor</h3>
+                        <p><strong>¿Qué es un transistor?</strong> Es un componente semiconductor que funciona como <span class="highlight">amplificador o interruptor</span> de señales eléctricas.</p>
+                        
+                        <p><strong>Tipos principales:</strong></p>
+                        <ul>
+                            <li><strong>NPN:</strong> La corriente fluye de colector a emisor cuando la base es positiva.</li>
+                            <li><strong>PNP:</strong> La corriente fluye de emisor a colector cuando la base es negativa.</li>
+                        </ul>
+                        
+                        <p><strong>Funcionamiento básico (NPN):</strong></p>
+                        <ul>
+                            <li>Una pequeña corriente en la <strong>BASE</strong> permite el paso de una corriente mayor del <strong>COLECTOR</strong> al <strong>EMISOR</strong>.</li>
+                            <li>Actúa como una llave controlada: sin corriente en la base → transistor apagado (no conduce).</li>
+                            <li>Con corriente en la base → transistor encendido (conduce).</li>
+                        </ul>
+                        
+                        <p><strong>Aplicaciones:</strong> Amplificadores de audio, interruptores digitales, fuentes de alimentación, circuitos lógicos.</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <footer>
             <p>⚡ Portal de acceso a guías de electrónica - Recursos para estudiantes y profesionales</p>
-            <h6> Juan es hueco</h6>
+            <h6> Juan es hueco y pablo su amante</h6>
         </footer>
     </div>
 </body>
